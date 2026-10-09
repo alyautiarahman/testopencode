@@ -190,7 +190,7 @@ Setiap perubahan di-commit dan **di-push ke GitHub** satu per satu.
 | 7 | `3ae2b3d` | 19:53 | `test(tambahkan feature test untuk alur CRUD, filter, dan pencarian)` | 16 feature test (43 assertions). `ExampleTest` diberi `RefreshDatabase` karena kini memakai database in-memory. |
 | 8 | `8723b82` | 19:55 | `docs(log): tambah log percakapan sesi setup dan pengembangan` | Menambahkan dokumen `LOG_PERCAKAPAN.md` ini — catatan sesi, riwayat commit, masalah & solusi, serta hasil pengujian. |
 
-> Commit pertama pada repo (`92e0a07 "coba"`) sudah ada sebelum sesi ini dimulai.
+> Tabel ini mencatat commit yang dibuat hingga dokumen ini ditulis; commit sesudahnya tidak tercatat di sini. Commit pertama pada repo (`92e0a07 "coba"`) sudah ada sebelum sesi ini dimulai.
 
 ---
 
@@ -322,5 +322,5 @@ testopencode/
 - ✅ Laravel **13.11.0** terpasang dan terverifikasi di `C:\xampp\htdocs\testopencode`
 - ✅ Aplikasi to-do list modern dibangun dengan Blade + Tailwind CSS v4 + Alpine.js
 - ✅ **16 test lulus** (43 asersi), ditambah smoke test HTTP end-to-end
-- ✅ **8 commit** dibuat selama sesi ini, masing-masing **di-push ke GitHub** dengan pesan commit yang menjelaskan perubahannya
+- ✅ Setiap perubahan di-commit dan **di-push ke GitHub** dengan pesan commit yang menjelaskan perubahannya — daftar lengkapnya ada di [Riwayat Commit](#5-riwayat-commit)
 - ✅ Log percakapan ini disimpan sebagai `LOG_PERCAKAPAN.md`
