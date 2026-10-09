@@ -1,9 +1,104 @@
 @import 'tailwindcss';
 
+/* Strategi dark mode berbasis class (.dark pada <html>), bukan preferensi OS. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Noto Color Emoji';
+
+    --animate-fade-up: fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    --animate-pop: pop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    --animate-slide-down: slide-down 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+    --animate-shimmer: shimmer 2.4s linear infinite;
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.12);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes shimmer {
+    from {
+        background-position: 200% 0;
+    }
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@layer base {
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        @apply bg-slate-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200;
+    }
+
+    /* Scrollbar tipis yang menyatu dengan tema. */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: rgb(148 163 184 / 0.5) transparent;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-slate-300 dark:bg-slate-700;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
+
+@layer components {
+    /* Titik-titik latar belakang yang halus. */
+    .bg-dots {
+        background-image: radial-gradient(rgb(148 163 184 / 0.35) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    .dark .bg-dots {
+        background-image: radial-gradient(rgb(51 65 85 / 0.55) 1px, transparent 1px);
+    }
 }
