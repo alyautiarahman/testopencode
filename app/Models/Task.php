@@ -99,12 +99,16 @@ class Task extends Model
 
     /**
      * Apakah task ini sudah lewat jatuh tempo?
+     *
+     * Dibandingkan per tanggal saja (bukan waktu), karena cast `date`
+     * selalu menghasilkan timestamp 00:00 sehingga `isPast()` akan
+     * selalu true pada hari yang sama.
      */
     public function isOverdue(): bool
     {
         return ! $this->is_completed
             && $this->due_date !== null
-            && $this->due_date->isPast();
+            && $this->due_date->lt(today());
     }
 
     /**
@@ -114,7 +118,7 @@ class Task extends Model
     {
         return ! $this->is_completed
             && $this->due_date !== null
-            && $this->due_date->isToday();
+            && $this->due_date->isSameDay(today());
     }
 
     /**
