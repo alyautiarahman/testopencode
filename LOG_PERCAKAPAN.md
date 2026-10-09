@@ -188,6 +188,7 @@ Setiap perubahan di-commit dan **di-push ke GitHub** satu per satu.
 | 5 | `a99ab95` | 19:52 | `feat(ui): bangun antarmuka to-do list modern dengan Blade + Alpine` | Layout + latar gradien, badge prioritas, baris task, dan halaman `tasks/index` lengkap dengan kartu progres, quick-add, toolbar filter, empty state, dan modal edit. |
 | 6 | `67c81fd` | 19:53 | `fix(model): task jatuh tempo hari ini tidak lagi dianggap terlambat` | Cast `date` selalu bernilai `00:00` sehingga `isPast()` selalu `true` di hari yang sama → memunculkan "Terlambat 0 hr". Diperbaiki menjadi perbandingan tanggal (`due_date < today()`). |
 | 7 | `3ae2b3d` | 19:53 | `test(tambahkan feature test untuk alur CRUD, filter, dan pencarian)` | 16 feature test (43 assertions). `ExampleTest` diberi `RefreshDatabase` karena kini memakai database in-memory. |
+| 8 | `8723b82` | 19:55 | `docs(log): tambah log percakapan sesi setup dan pengembangan` | Menambahkan dokumen `LOG_PERCAKAPAN.md` ini — catatan sesi, riwayat commit, masalah & solusi, serta hasil pengujian. |
 
 > Commit pertama pada repo (`92e0a07 "coba"`) sudah ada sebelum sesi ini dimulai.
 
@@ -321,5 +322,5 @@ testopencode/
 - ✅ Laravel **13.11.0** terpasang dan terverifikasi di `C:\xampp\htdocs\testopencode`
 - ✅ Aplikasi to-do list modern dibangun dengan Blade + Tailwind CSS v4 + Alpine.js
 - ✅ **16 test lulus** (43 asersi), ditambah smoke test HTTP end-to-end
-- ✅ **7 commit** dibuat selama sesi ini, masing-masing **di-push ke GitHub** dengan pesan commit yang menjelaskan perubahannya
+- ✅ **8 commit** dibuat selama sesi ini, masing-masing **di-push ke GitHub** dengan pesan commit yang menjelaskan perubahannya
 - ✅ Log percakapan ini disimpan sebagai `LOG_PERCAKAPAN.md`
